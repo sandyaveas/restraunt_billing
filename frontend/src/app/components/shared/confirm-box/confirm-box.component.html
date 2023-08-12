@@ -1,0 +1,20 @@
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display': show ? 'block' : 'none'}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" [ngClass]="headerClass">
+            <div class="modal-header">
+                <div class="modal-title">{{title}}</div>
+            </div>
+            <div class="modal-body">
+                {{bodyText}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm" [ngClass]="okClass" (click)="okClick()">
+                    {{okBtnText}}
+                </button>
+                <button type="button" class="btn btn-sm btn-primary" (click)="cancelClick()">
+                    {{cancelBtnText}}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

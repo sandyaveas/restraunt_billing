@@ -1,0 +1,56 @@
+<div *ngIf="!showAddEditEmployee">
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn-sm btn-simple float-right" (click)="showAddEmployee()">
+                <span class="text-success">
+                    <i class="fa-solid fa-circle-plus"></i>
+                    Add
+                </span>
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body table-responsive table-full-width p-1">
+                    <table class="table table-hover table-row-sm">
+                        <thead class="text-primary">
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Branch</th>
+                                <th colspan="2">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let e of employees">
+                                <td>{{e.firstName}}</td>
+                                <td>{{e.lastName}}</td>
+                                <td>{{e.email}}</td>
+                                <td>{{e.email}}</td>
+                                <td>
+                                    <button class="btn btn-icon btn-simple btn-round" (click)="editEmp(e.id)">
+                                        <i class="fa-regular fa-pen-to-square text-success" title="Edit"></i>
+                                    </button>
+
+                                    <button class="btn btn-icon btn-simple btn-round" (click)="deleteEmp(e.id)">
+                                        <i class="fa-regular fa-trash-can text-danger" title="Delete"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="showAddEditEmployee">
+    <app-add-employee (backToList)="showList($event)" [id]="id"></app-add-employee>
+</div>
+
+<app-confirm-box [show]="showConfirmBox" [type]="'danger'" [title]="'Delete'"
+    [bodyText]="'Are you sure you want to delete this record?'" [okBtnText]="'Delete'" [cancelBtnText]="'Cancel'"
+    (onOk)="onConfirmDelete($event)" (onCancel)="onConfirmCancel($event)">
+</app-confirm-box>

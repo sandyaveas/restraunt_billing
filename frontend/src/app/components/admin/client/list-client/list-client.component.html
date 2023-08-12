@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body table-responsive table-full-width p-1">
+                <table class="table table-hover table-row-sm">
+                    <thead class="text-primary">
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Branch</th>
+                            <th colspan="2">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let c of clients">
+                            <td>{{c.firstName}}</td>
+                            <td>{{c.lastName}}</td>
+                            <td>{{c.email}}</td>
+                            <td>{{c.email}}</td>
+                            <td>
+                                <button class="btn btn-icon btn-simple btn-round">
+                                    <i class="fa-regular fa-pen-to-square text-success" title="Edit"></i>
+                                </button>
+
+                                <button class="btn btn-icon btn-simple btn-round">
+                                    <i class="fa-regular fa-trash-can text-danger" title="Delete"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
