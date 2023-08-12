@@ -1,0 +1,19 @@
+.modal {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.header-success {
+    border-top: 5px solid $success-color
+}
+
+.header-danger {
+    border-top: 5px solid $danger-color
+}
+
+.header-info {
+    border-top: 5px solid $info-color
+}
+
+.header-warning {
+    border-top: 5px solid $warning-color
+}
