@@ -9,14 +9,14 @@ export interface RouteInfo {
     icon: string;
     class: string;
     allowedUser: UserRole[];
-    subMenus?: RouteInfo[] | null;
+    subMenus?: RouteInfo[];
 }
 
 export const ROUTES: RouteInfo[] = [
     { path: '/dashboard', title: 'Dashboard', icon: 'nc-bank', class: '', allowedUser: [UserRole.OrgAdmin, UserRole.SuperAdmin] },
     { path: '', title: 'Masters', icon: 'nc-tile-56', class: '', allowedUser: [UserRole.OrgAdmin, UserRole.SuperAdmin],
         subMenus: [ 
-            {path: '/department', title: 'Masters', icon: 'nc-tile-56', class: '', allowedUser: [UserRole.OrgAdmin, UserRole.SuperAdmin]},
+            {path: '/menu', title: 'Menu', icon: 'nc-tile-56', class: '', allowedUser: [UserRole.OrgAdmin, UserRole.SuperAdmin]},            
         ]
     },
     { path: '/clients', title: 'Clients', icon: 'nc-globe', class: '', allowedUser: [UserRole.SuperAdmin] },

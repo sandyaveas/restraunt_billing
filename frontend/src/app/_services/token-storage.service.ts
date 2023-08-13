@@ -4,6 +4,8 @@ import { Claims } from '../_models/claims';
 
 const TOKEN_KEY = 'auth-token';
 
+const dummyToken = 'eyJhbGciOiJIUzI1NiJ9.eyJpc3N1ZWQgQXQiOiIyMDIzLTA4LTEzVDA3OjA2OjEwLjU2OFoiLCJyb2xlIjoiQWRtaW4iLCJleHBpcmF0aW9uIjoiMjAyMy0wOC0xM1QwNzowNjoxMC41NjhaIiwiaWQiOiIxIiwidXNlclJvbGUiOiJTVVBFUi1BRE1JTiIsImlzc3VlciI6Iklzc3VlciIsImVtYWlsIjoiZHVtbXlAZHVtbXkuY29tIiwidXNlcm5hbWUiOiJEdW1teSJ9.QHiLIX9Fa6xbY_DICs2v_0oWNcLfC-SlErqbw9Fk_8M';
+
 @Injectable({
   providedIn: 'root'
 })

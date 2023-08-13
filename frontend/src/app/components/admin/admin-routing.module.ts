@@ -5,7 +5,7 @@ import { ListClientComponent } from './client/list-client/list-client.component'
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddEmployeeComponent } from './employee/add-employee/add-employee.component';
 import { ListEmployeeComponent } from './employee/list-employee/list-employee.component';
-import { DepartmentComponent } from './masters/department/department.component';
+import { MenuComponent } from './masters/menu/menu.component';
 
 const routes: Routes = [
   {
@@ -13,7 +13,7 @@ const routes: Routes = [
     component: AdminComponent,
     children: [
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'department', component: DepartmentComponent },
+      { path: 'menu', component: MenuComponent },
       { path: 'employees', component: ListEmployeeComponent },
       { path: 'add-employee', component: AddEmployeeComponent },
       { path: 'edit-employee/:id', component: AddEmployeeComponent },
