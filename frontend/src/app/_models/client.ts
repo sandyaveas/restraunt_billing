@@ -4,5 +4,5 @@ export interface Client {
     lastName: string,
     email: string,
     username: string,
-    userType: string
+    userRole: string
 }

@@ -29,6 +29,7 @@ export class TokenService {
   }
 
   public decodeToken(): Claims {
-    return this.jwtHelper.decodeToken(this.getToken() ?? '').sub;
+    //return this.jwtHelper.decodeToken(this.getToken() ?? '').sub;
+    return this.jwtHelper.decodeToken(this.getToken() ?? '');
   }
 }

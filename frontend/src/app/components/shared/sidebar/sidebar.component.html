@@ -11,10 +11,19 @@
   </div>
   <ul class="nav">
     <li *ngFor="let menuItem of menuItems" routerLinkActive="active" class="{{menuItem.class}}">
-      <a [routerLink]="[menuItem.path]">
+      <a *ngIf="menuItem.subMenus 
+      == null" [routerLink]="[menuItem.path]">
         <i class="nc-icon {{menuItem.icon}}"></i>
         <p>{{menuItem.title}}</p>
       </a>
+      <ul *ngIf="menuItem.subMenus && menuItem.subMenus.length > 0" class="nav">        
+        <li *ngFor="let subMenu of menuItem.subMenus">
+          <a [routerLink]="[subMenu.path]">
+            <i class="nc-icon {{subMenu.icon}}"></i>
+            <p>{{subMenu.title}}</p>
+          </a>
+        </li>
+      </ul>
     </li>
   </ul>
 </div>

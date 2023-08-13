@@ -4,7 +4,7 @@ export interface Employee {
     lastName: string,
     email: string,
     username: string,
-    userType: string,
+    userRole: string,
     branch: string,
     address: string,
     city: string,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserType } from 'src/app/_enums/userType.enum';
+import { UserRole } from 'src/app/_enums/userRole.enum';
 import { TokenService } from 'src/app/_services/token-storage.service';
 
 
@@ -8,14 +8,19 @@ export interface RouteInfo {
     title: string;
     icon: string;
     class: string;
-    allowedUser: UserType[];
+    allowedUser: UserRole[];
+    subMenus?: RouteInfo[] | null;
 }
 
 export const ROUTES: RouteInfo[] = [
-    { path: '/dashboard', title: 'Dashboard', icon: 'nc-bank', class: '', allowedUser: [UserType.OrgAdmin, UserType.SuperAdmin] },
-    { path: '/department', title: 'Masters', icon: 'nc-tile-56', class: '', allowedUser: [UserType.OrgAdmin, UserType.SuperAdmin] },
-    { path: '/clients', title: 'Clients', icon: 'nc-globe', class: '', allowedUser: [UserType.SuperAdmin] },
-    { path: '/employees', title: 'Employee', icon: 'nc-circle-10', class: '', allowedUser: [UserType.OrgAdmin, UserType.SuperAdmin] },
+    { path: '/dashboard', title: 'Dashboard', icon: 'nc-bank', class: '', allowedUser: [UserRole.OrgAdmin, UserRole.SuperAdmin] },
+    { path: '', title: 'Masters', icon: 'nc-tile-56', class: '', allowedUser: [UserRole.OrgAdmin, UserRole.SuperAdmin],
+        subMenus: [ 
+            {path: '/department', title: 'Masters', icon: 'nc-tile-56', class: '', allowedUser: [UserRole.OrgAdmin, UserRole.SuperAdmin]},
+        ]
+    },
+    { path: '/clients', title: 'Clients', icon: 'nc-globe', class: '', allowedUser: [UserRole.SuperAdmin] },
+    { path: '/employees', title: 'Employee', icon: 'nc-circle-10', class: '', allowedUser: [UserRole.OrgAdmin, UserRole.SuperAdmin] },
     // { path: '/maps', title: 'Maps', icon: 'nc-pin-3', class: '' },
     // { path: '/notifications', title: 'Notifications', icon: 'nc-bell-55', class: '' },
     // { path: '/table', title: 'Table List', icon: 'nc-tile-56', class: '' },
@@ -31,12 +36,12 @@ export const ROUTES: RouteInfo[] = [
 
 export class SidebarComponent implements OnInit {
     public menuItems: RouteInfo[] = [];
-    userType!: UserType;
+    userRole!: UserRole;
 
     constructor(private tokenService: TokenService) { }
 
     ngOnInit() {
-        this.userType = this.tokenService.decodeToken().userType as UserType;
-        this.menuItems = ROUTES.filter(menuItem => menuItem.allowedUser.indexOf(this.userType) >= 0);
+        this.userRole = this.tokenService.decodeToken().userRole as UserRole;
+        this.menuItems = ROUTES.filter(menuItem => menuItem.allowedUser.indexOf(this.userRole) >= 0);
     }
 }

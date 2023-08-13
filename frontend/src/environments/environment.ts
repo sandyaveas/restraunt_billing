@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://api.dev.atms.alaizal.com/api/v1'
+  baseUrl: 'http://localhost:12345/api/v1'
 };
 
 /*
